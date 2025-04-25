@@ -27,7 +27,6 @@
                     <p class="text-muted mb-4">
                         Calle #5<br />
                         Pupiales, Nariño<br />
-                        
                     </p>
 
                     <h4 class="mb-3">
@@ -36,7 +35,6 @@
                     </h4>
                     <ul class="list-unstyled">
                         <li class="mb-2">+57 316 4014591</li>
-                        
                     </ul>
 
                     <hr class="my-4" />
@@ -46,10 +44,16 @@
                         Sociales
                     </h4>
                     <div class="d-flex gap-3">
-                        <a href="https://www.facebook.com/share/1F3do9DUX9/?mibextid=wwXIfr" class="text-dark">
+                        <a
+                            href="https://www.facebook.com/share/1F3do9DUX9/?mibextid=wwXIfr"
+                            class="text-dark"
+                        >
                             <i class="fab fa-facebook fa-2x"></i>
                         </a>
-                        <a href="https://www.instagram.com/luxia_23.1?igsh=MXdyejQ1YTI0YXJmaA==" class="text-dark">
+                        <a
+                            href="https://www.instagram.com/luxia_23.1?igsh=MXdyejQ1YTI0YXJmaA=="
+                            class="text-dark"
+                        >
                             <i class="fab fa-instagram fa-2x"></i>
                         </a>
                         <a href="https://wa.me/573164014591" class="text-dark">
@@ -157,15 +161,17 @@
             <div class="card border-0 shadow-lg mt-5">
                 <div class="card-body p-0">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317715.7119169245!2d-0.3817850219724494!3d51.52873519845587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondres%2C%20Reino%20Unido!5e0!3m2!1ses-419!2ses!4v1718339940943!5m2!1ses-419!2ses"
-                        width="100%"
-                        height="400"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7351.702480301228!2d-77.64114289304685!3d0.8698339622960147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e296a107c74ccd9%3A0xb6d3d8b514a17fe6!2sPupiales%2C%20Nari%C3%B1o!5e0!3m2!1ses-419!2sco!4v1745591403166!5m2!1ses-419!2sco"
+                        width="600"
+                        height="450"
                         style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        class="rounded-3"
-                    ></iframe>
+                        title="map-zone"
+                        class="w-100"
+                    >
+                    </iframe>
                 </div>
             </div>
         </div>
