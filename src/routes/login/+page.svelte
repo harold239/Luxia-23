@@ -1,13 +1,57 @@
 <script>
+    import { auth } from "$lib/firebase";
+    import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+    import { FacebookAuthProvider } from "firebase/auth";
+    import {
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+    } from "firebase/auth";
+    import { goto } from "$app/navigation";
+
     let isLoginForm = true;
     let showPassword = false;
+
+    let email = "";
+    let password = "";
+    let confirmPassword = "";
+    let name = "";
 
     const toggleForm = () => {
         isLoginForm = !isLoginForm;
     };
 
-    const handleSubmit = () => {
-        alert(`${isLoginForm ? "Login" : "Registro"} exitoso!`);
+    const login = async () => {
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider);
+        goto("/");
+    };
+
+    const loginWithFacebook = async () => {
+        const provider = new FacebookAuthProvider();
+        await signInWithPopup(auth, provider);
+        goto("/");
+    };
+
+    const handleSubmit = async () => {
+        if (isLoginForm) {
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                goto("/");
+            } catch (error) {
+                alert(error.message);
+            }
+        } else {
+            if (password !== confirmPassword) {
+                alert("Las contraseñas no coinciden");
+                return;
+            }
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+                goto("/");
+            } catch (error) {
+                alert(error.message);
+            }
+        }
     };
 </script>
 
@@ -51,16 +95,20 @@
                     </ul>
 
                     <div class="text-center mb-5">
-                        <h5 class="mb-4">O continúa con:</h5>
                         <div class="d-flex justify-content-center gap-3">
-                            <button class="btn btn-outline-dark">
+                            <button
+                                class="btn btn-outline-dark"
+                                on:click={login}
+                            >
+                                <!-- google -->
                                 <i class="fab fa-google fa-2x"></i>
                             </button>
-                            <button class="btn btn-outline-dark">
+                            <button
+                                class="btn btn-outline-dark"
+                                on:click={loginWithFacebook}
+                            >
+                                <!-- facebook -->
                                 <i class="fab fa-facebook fa-2x"></i>
-                            </button>
-                            <button class="btn btn-outline-dark">
-                                <i class="fab fa-apple fa-2x"></i>
                             </button>
                         </div>
                     </div>
@@ -79,6 +127,7 @@
                                             class="form-control"
                                             id="nombre"
                                             placeholder="Nombre Completo"
+                                            bind:value={name}
                                             required
                                         />
                                         <label for="nombre">
@@ -96,6 +145,7 @@
                                         class="form-control"
                                         id="email"
                                         placeholder="nombre@ejemplo.com"
+                                        bind:value={email}
                                         required
                                     />
                                     <label for="email">
@@ -114,6 +164,7 @@
                                         class="form-control"
                                         id="password"
                                         placeholder="Contraseña"
+                                        bind:value={password}
                                         required
                                     />
                                     <label for="password">
@@ -126,6 +177,7 @@
                                         on:click={() =>
                                             (showPassword = !showPassword)}
                                     >
+                                        <!-- xd -->
                                         <i
                                             class="fas {showPassword
                                                 ? 'fa-eye-slash'
@@ -143,55 +195,13 @@
                                             class="form-control"
                                             id="confirmPassword"
                                             placeholder="Confirmar Contraseña"
+                                            bind:value={confirmPassword}
                                             required
                                         />
                                         <label for="confirmPassword">
                                             <i class="fas fa-lock me-2"
                                             ></i>Confirmar Contraseña
                                         </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            id="terms"
-                                            required
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="terms"
-                                        >
-                                            Acepto los
-                                            <a
-                                                href="#"
-                                                class="text-decoration-none"
-                                                >términos y condiciones</a
-                                            >
-                                        </label>
-                                    </div>
-                                </div>
-                            {:else}
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="form-check">
-                                            <input
-                                                class="form-check-input"
-                                                type="checkbox"
-                                                id="remember"
-                                            />
-                                            <label
-                                                class="form-check-label"
-                                                for="remember"
-                                            >
-                                                Recordarme
-                                            </label>
-                                        </div>
-                                        <a href="#" class="text-decoration-none"
-                                            >¿Olvidaste tu contraseña?</a
-                                        >
                                     </div>
                                 </div>
                             {/if}
@@ -243,13 +253,6 @@
         right: 0;
         border-top: 2px solid #dee2e6;
         z-index: 1;
-    }
-
-    .divider-text span {
-        background: white;
-        position: relative;
-        z-index: 2;
-        padding: 0 1rem;
     }
 
     .form-control:focus {
