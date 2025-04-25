@@ -1,29 +1,30 @@
 <script>
+    import fotoEdison from "$lib/imagenes/edison.jpg";
+    import fotoBrayan from "$lib/imagenes/brayan.jpg";
+    import fotofernanda from "$lib/imagenes/fernanda.jpg";
+    import usernotfound from "$lib/imagenes/userNotfound.png";
+
     let trabajadores = [
         {
             id: 1,
+            image: fotoBrayan,
             nombre: "Brayan",
-            description: "Brayan es un barbero profesional con más de 4 años de experiencia en el oficio. Es el fundador de Luxia 23, donde combina su pasión y habilidad para ofrecer cortes de calidad y un servicio excepcional a sus clientes",
+            description:
+                "Brayan es un barbero profesional con más de 4 años de experiencia en el oficio. Es el fundador de Luxia 23, donde combina su pasión y habilidad para ofrecer cortes de calidad y un servicio excepcional a sus clientes",
         },
         {
             id: 2,
+            image: fotoEdison,
             nombre: "Edison",
-            description: "Edison es un barbero talentoso con 3 años de experiencia, demostrando gran habilidad y dedicación en cada corte, su destreza y compromiso con la calidad lo convierten en un profesional altamente confiable en la barbería Luxia 23.",
+            description:
+                "Edison es un barbero talentoso con 3 años de experiencia, demostrando gran habilidad y dedicación en cada corte, su destreza y compromiso con la calidad lo convierten en un profesional altamente confiable en la barbería Luxia 23.",
         },
         {
             id: 3,
+            image: fotofernanda,
             nombre: "Fernanda",
-            description: "Fernanda es una manicurista y peinadora profesional, reconocida por su precisión y creatividad en cada servicio. Con una gran atención al detalle, se especializa en ofrecer manicuras impecables y peinados sofisticados, siempre buscando resaltar la belleza y estilo único de cada cliente.",
-        },
-        {
-            id: 4,
-            nombre: "Personal #4",
-            description: "Descripción",
-        },
-        {
-            id: 5,
-            nombre: "Personal #5",
-            description: "Descripción",
+            description:
+                "Fernanda es una manicurista y peinadora profesional, reconocida por su precisión y creatividad en cada servicio. Con una gran atención al detalle, se especializa en ofrecer manicuras impecables y peinados sofisticados, siempre buscando resaltar la belleza y estilo único de cada cliente.",
         },
     ];
 </script>
@@ -38,7 +39,15 @@
         <div class="row g-4 justify-content-center">
             <div class="col-lg-8">
                 <p class="mb-4">
-                 En nuestra barbería, combinamos tradición y vanguardia para ofrecer una experiencia única, donde la precisión, la calidad y la atención personalizada son nuestra prioridad. Buscamos realzar el estilo y la confianza de cada cliente mediante técnicas clásicas y modernas, utilizando productos ecológicos de alta calidad. Nuestro compromiso es brindar un servicio de excelencia, marcando tendencia en el cuidado masculino con innovación, profesionalismo e impecable atención al detalle.
+                    En nuestra barbería, combinamos tradición y vanguardia para
+                    ofrecer una experiencia única, donde la precisión, la
+                    calidad y la atención personalizada son nuestra prioridad.
+                    Buscamos realzar el estilo y la confianza de cada cliente
+                    mediante técnicas clásicas y modernas, utilizando productos
+                    ecológicos de alta calidad. Nuestro compromiso es brindar un
+                    servicio de excelencia, marcando tendencia en el cuidado
+                    masculino con innovación, profesionalismo e impecable
+                    atención al detalle.
                 </p>
                 <div class="d-flex justify-content-center gap-4">
                     <div class="feature-item">
@@ -73,20 +82,24 @@
                     <div class="card-body text-center">
                         <div
                             class="position-relative overflow-hidden rounded-circle mx-auto mb-3"
-                            style="width: 200px; height: 200px;"
                         >
-                            <div
+                            <!-- <div
                                 class="bg-light position-absolute w-100 h-100"
                             ></div>
                             <i
                                 class="fas fa-user-tie fa-7x text-secondary position-absolute top-50 start-50 translate-middle"
-                            ></i>
+                            ></i> -->
+                            <img
+                                src={trabajador.image}
+                                alt={usernotfound}
+                                class="img-fluid"
+                            />
                         </div>
                         <h5 class="card-title fw-bold">{trabajador.nombre}</h5>
                         <p class="card-text text-muted">
                             {trabajador.description}
                         </p>
-                        <div class="social-links">
+                        <!-- <div class="social-links">
                             <a href="/" class="text-dark mx-2">
                                 <i class="fab fa-instagram"></i>
                             </a>
@@ -96,7 +109,7 @@
                             <a href="/" class="text-dark mx-2">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -110,13 +123,21 @@
             <div class="pe-lg-5">
                 <h3 class="mb-4">Nuestra Historia</h3>
                 <p class="text-white">
-                    Hace cuatro años, en el corazón de Pupiales, Nariño, nació nuestra barbería con una misión clara: redefinir el cuidado masculino a través de la excelencia, la innovación y la tradición. Lo que comenzó como un sueño se convirtió en un espacio donde cada cliente encuentra no solo un corte impecable, sino una experiencia única de estilo y confianza.Hoy, seguimos creciendo con la misma pasión que nos vio nacer, consolidándonos como un referente en la barbería y el cuidado personal. 💈🔥
+                    Hace cuatro años, en el corazón de Pupiales, Nariño, nació
+                    nuestra barbería con una misión clara: redefinir el cuidado
+                    masculino a través de la excelencia, la innovación y la
+                    tradición. Lo que comenzó como un sueño se convirtió en un
+                    espacio donde cada cliente encuentra no solo un corte
+                    impecable, sino una experiencia única de estilo y
+                    confianza.Hoy, seguimos creciendo con la misma pasión que
+                    nos vio nacer, consolidándonos como un referente en la
+                    barbería y el cuidado personal. 💈🔥
                 </p>
-                <img
+                <!-- <img
                     src="https://via.placeholder.com/500x300"
                     alt="Historia"
                     class="img-fluid rounded shadow"
-                />
+                /> -->
             </div>
         </div>
 
@@ -170,7 +191,7 @@
 <div class="bg-light py-5">
     <div class="container text-center">
         <h3 class="mb-4">¿Listo para tu nueva experiencia?</h3>
-        <a href="/" class="btn btn-primary btn-lg px-5">
+        <a href="/contacto" class="btn btn-primary btn-lg px-5">
             <i class="fas fa-calendar-check me-2"></i>Reserva tu Cita
         </a>
     </div>
@@ -179,43 +200,48 @@
 <style>
     /* Estilos para la sección con imagen de fondo */
     .hero-section {
-    background-image: url('$lib/imagenes/portada2.jpg');
-    background-size: cover; /* Mantén 'cover' para que cubra todo el espacio */
-    background-position: center center; /* Centra la imagen horizontal y verticalmente */
-    background-repeat: no-repeat;
-    position: relative;
-    padding: 150px 0; /* Aumentado de 100px a 150px para más altura */
-    min-height: 800px; /* Establece una altura mínima para la sección */
-}
-    
+        background-image: url("$lib/imagenes/portada2.jpg");
+        background-size: cover; /* Mantén 'cover' para que cubra todo el espacio */
+        background-position: center center; /* Centra la imagen horizontal y verticalmente */
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 150px 0; /* Aumentado de 100px a 150px para más altura */
+        min-height: 800px; /* Establece una altura mínima para la sección */
+    }
+
     /* Overlay oscuro para mejorar la legibilidad del texto */
     .hero-section::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.7); /* Overlay negro semitransparente */
+        background-color: rgba(
+            0,
+            0,
+            0,
+            0.7
+        ); /* Overlay negro semitransparente */
         z-index: 1;
     }
-    
+
     /* Asegura que el contenido esté por encima del overlay */
     .hero-section .container {
         position: relative;
         z-index: 2;
     }
-    
+
     /* Mejora la legibilidad del texto */
     .hero-section p {
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         font-weight: 400;
     }
-    
+
     .hero-section h1 {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
     }
-    
+
     /* Estilo para los íconos de características */
     .hero-section .feature-item {
         background-color: rgba(0, 0, 0, 0.5);
@@ -223,7 +249,7 @@
         border-radius: 10px;
         width: 120px;
     }
-    
+
     .hero-section .feature-item i {
         color: #e8bf00; /* Color dorado para los íconos */
     }
